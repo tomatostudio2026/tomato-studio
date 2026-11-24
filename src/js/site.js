@@ -30,9 +30,9 @@
     if (page) location.replace('realizacje-' + page + '.html');
   }
 
-  /* ===== Project gallery (lightbox) =====
-     A project link: <a href="img/realizacje/<id>/01.jpg" data-gal data-count="9" data-name="…" data-cat="…">.
-     Photos are 01.jpg … NN.jpg in the same folder. */
+  /* ===== Project gallery (lightbox), used on the project pages (realizacje/<projekt>.html) =====
+     A photo link: <a href="…/img/realizacje/<id>/03.jpg" data-gal data-count="9" data-name="…" data-catname="…">.
+     Photos are 01.jpg … NN.jpg in the same folder; the gallery opens at the clicked photo. */
   const lb = $('#lb');
   let moved = false; // set while dragging the home slider, so a drag does not open a gallery
   if (lb) {
@@ -51,7 +51,7 @@
     const open = (a) => {
       const href = a.getAttribute('href');
       cur = { base: href.slice(0, href.lastIndexOf('/') + 1), n: Number(a.dataset.count) || 1, name: a.dataset.name || '', cat: a.dataset.catname || '' };
-      idx = 0; lastFocus = a;
+      idx = Math.max(0, Math.min(cur.n - 1, (parseInt(href.slice(href.lastIndexOf('/') + 1), 10) || 1) - 1)); lastFocus = a;
       lb.hidden = false; document.body.style.overflow = 'hidden';
       show(); close.focus();
     };
@@ -117,6 +117,7 @@
       gal.scrollLeft = keep;
       setTimeout(() => { moved = false; }, 60);
     });
+    gal.addEventListener('click', (e) => { if (moved) e.preventDefault(); }, true); // a drag is not a click on the project
     center();
     window.addEventListener('resize', center);
   }

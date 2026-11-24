@@ -276,6 +276,51 @@ details.faq p { font-size: 16px; line-height: 1.6; color: var(--text-2); padding
 .rcard-place { font-size: 15px; color: var(--text-2); white-space: nowrap; }
 .rcard-cat { font-size: 14px; color: var(--muted); }
 
+/* ---------- strona realizacji (realizacje/<projekt>.html) ---------- */
+.proj-head { padding-bottom: 48px; }
+.proj-head .breadcrumb a { color: var(--muted); }
+.proj-head .breadcrumb a:hover { color: var(--accent-hover); }
+.proj-intro { display: flex; flex-direction: column; gap: 36px; }
+.proj-lead .lead-muted { font-size: 22px; max-width: 760px; color: var(--ink); }
+.facts { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 0 32px; border-top: 1px solid var(--ink); }
+.facts > div { display: flex; flex-direction: column; gap: 6px; padding-top: 18px; }
+.facts dt { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; font-size: 20px; font-weight: 500; }
+.proj-hero { display: block; overflow: hidden; border-radius: 2px; background: var(--ph); }
+.proj-hero img { width: 100%; max-height: 82vh; object-fit: cover; }
+.proj-story { padding: 72px 0 0; }
+.proj-story + .proj-story { padding-top: 40px; }
+.proj-story .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr); gap: 24px 80px; }
+.proj-story p { font-size: 22px; line-height: 1.55; max-width: 820px; }
+/* Photo grid: every gap is 16 px, including the one under the big photo; photos in a row share one shape. */
+.pgal { padding: 16px 0 110px; }
+.proj-story + .pgal { padding-top: 72px; }
+.pgal-rows { display: flex; flex-direction: column; gap: 16px; }
+.pgal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pgal-p3 { grid-template-columns: repeat(3, 1fr); }
+.pgal-wide { grid-template-columns: 1fr; }
+.pgal-item { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ph); border-radius: 2px; cursor: zoom-in; }
+.pgal-l2 .pgal-item { aspect-ratio: 3 / 2; }
+.pgal-wide .pgal-item { aspect-ratio: var(--ar); max-height: 82vh; width: 100%; }
+.pgal-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.pgal-item:hover img { transform: scale(1.025); }
+.pgal-credit { margin-top: 20px; font-size: 14px; color: var(--muted); }
+.proj-quote blockquote p { font-family: var(--display); font-size: 44px; line-height: 1.1; font-weight: 600; letter-spacing: -.02em; max-width: 1000px; }
+.proj-quote figcaption { margin-top: 24px; font-size: 16px; color: var(--text-2); }
+.pnav { border-top: 1px solid var(--line); }
+.pnav .wrap { display: grid; grid-template-columns: 1fr 1fr; }
+.pnav-card { display: flex; align-items: center; gap: 24px; padding: 40px 0; text-decoration: none; color: inherit; }
+.pnav-next { flex-direction: row-reverse; text-align: right; border-left: 1px solid var(--line); }
+.pnav-prev { padding-right: 32px; }
+.pnav-next { padding-left: 32px; }
+.pnav-img { flex: none; width: 180px; overflow: hidden; border-radius: 2px; }
+.pnav-img img { width: 100%; height: 130px; object-fit: cover; transition: transform .5s; }
+.pnav-card:hover img { transform: scale(1.04); }
+.pnav-text { display: flex; flex-direction: column; gap: 6px; }
+.pnav-name { font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: .01em; line-height: 1.1; transition: color .2s; }
+.pnav-card:hover .pnav-name { color: var(--accent-hover); }
+.pnav-cat { font-size: 14px; color: var(--muted); }
+
 /* ---------- dla biznesu ---------- */
 .biz-hero { align-items: stretch; }
 .biz-hero .hero-body { justify-content: flex-end; }
@@ -450,6 +495,28 @@ button[disabled] { opacity: .6; cursor: progress; }
 
   .tab { font-size: 24px; }
   .rcard-img img { height: 320px; }
+  .proj-intro { gap: 28px; }
+  .proj-lead .lead-muted { font-size: 19px; }
+  .facts { grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .facts > div { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .facts dd { font-size: 17px; }
+  .proj-hero img { max-height: 70vh; }
+  .proj-story { padding-top: 48px; }
+  .proj-story .wrap { grid-template-columns: 1fr; gap: 12px; }
+  .proj-story p { font-size: 18px; }
+  .pgal { padding: 10px 0 80px; }
+  .proj-story + .pgal { padding-top: 48px; }
+  .pgal-rows, .pgal-row { gap: 10px; }
+  .pgal-l2 { grid-template-columns: 1fr; }
+  .pgal-p3 { grid-template-columns: 1fr 1fr; }
+  .pgal-p3 .pgal-item:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+  .proj-quote blockquote p { font-size: 28px; }
+  .pnav .wrap { grid-template-columns: 1fr; }
+  .pnav-card, .pnav-next { flex-direction: row; text-align: left; padding: 24px 0; border-left: 0; }
+  .pnav-next { border-top: 1px solid var(--line); }
+  .pnav-img { width: 110px; }
+  .pnav-img img { height: 82px; }
+  .pnav-name { font-size: 19px; }
 
   .nn { font-size: 40px; }
   .nl { font-size: 14px; }
