@@ -39,8 +39,13 @@
     const img = document.createElement('img'), cap = $('#lb-cap'), prev = $('#lb-p'), next = $('#lb-n'), close = $('#lb-x');
     img.id = 'lb-img';
     cap.before(img);
-    let cur = null, idx = 0, lastFocus = null;
-    const src = (i) => cur.base + pad(i + 1) + '.jpg';
+    let cur = null, idx = 0, lastFocus = null, ext = '.jpg';
+    const src = (i) => cur.base + pad(i + 1) + ext;
+    // Use the format the browser already picked from <picture> (AVIF, WebP or JPG) for the big photos too
+    const pickExt = (a) => {
+      const shown = [a.querySelector('img'), $('.proj-hero img')].map((i) => i && i.currentSrc).find(Boolean) || '';
+      ext = (shown.match(/\.(avif|webp)$/) || ['.jpg'])[0];
+    };
     const show = () => {
       img.src = src(idx);
       img.alt = `${cur.name} – zdjęcie ${idx + 1}`;
@@ -51,6 +56,7 @@
     const open = (a) => {
       const href = a.getAttribute('href');
       cur = { base: href.slice(0, href.lastIndexOf('/') + 1), n: Number(a.dataset.count) || 1, name: a.dataset.name || '', cat: a.dataset.catname || '' };
+      pickExt(a);
       idx = Math.max(0, Math.min(cur.n - 1, (parseInt(href.slice(href.lastIndexOf('/') + 1), 10) || 1) - 1)); lastFocus = a;
       lb.hidden = false; document.body.style.overflow = 'hidden';
       show(); close.focus();

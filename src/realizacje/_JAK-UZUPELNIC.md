@@ -33,6 +33,8 @@ Po wpisaniu opisu warto też poprawić `<meta name="description">` w tym pliku, 
 Zdjęcia projektu leżą w `src/img/realizacje/<skrót>/` jako `01.jpg`, `02.jpg`, … (dłuższy bok ok. 1200 px).
 `01.jpg` to duże zdjęcie na górze strony; pozostałe układają się w galerię w kolejności numerów.
 Dodanie lub usunięcie zdjęcia wymaga zmiany galerii w pliku strony – najprościej poprosić Claude: „dodaj zdjęcia 10–12 do strony Willa w Tarnowie”.
+Obok każdego `NN.jpg` leżą lżejsze wersje `NN.avif` i `NN.webp` (przeglądarka sama wybiera najlepszą). Przy nowych zdjęciach
+Claude robi je narzędziami `avifenc` i `cwebp` (AVIF `-q 60 -y 420`, WebP `-q 80`) i wstawia zdjęcie w `<picture>`, tak jak pozostałe.
 
 ## Nowy projekt
 

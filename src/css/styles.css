@@ -53,6 +53,7 @@ a { color: var(--ink); }
 a:hover { color: var(--accent-hover); }
 h1, h2, h3, p, figure, blockquote { margin: 0; }
 img, video, svg { max-width: 100%; }
+picture { display: contents; } /* <picture> only picks the file format; the <img> inside keeps its own layout */
 img { display: block; height: auto; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
