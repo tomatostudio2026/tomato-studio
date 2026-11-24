@@ -122,6 +122,101 @@
     window.addEventListener('resize', center);
   }
 
+  /* ===== Dropdowns in the site's style: each <select> in a form gets a button and a list.
+     The select stays in the page (hidden) and is what the form sends; without JavaScript
+     the plain select is shown. ===== */
+  let ddN = 0;
+  const dropdowns = [];
+  $$('.lead-form select').forEach((sel) => {
+    const label = sel.closest('label');
+    const n = ++ddN;
+    const box = document.createElement('div');
+    const btn = document.createElement('button');
+    const list = document.createElement('ul');
+    box.className = 'dd';
+    btn.type = 'button'; btn.className = 'dd-btn'; btn.id = `dd-b${n}`;
+    btn.setAttribute('aria-haspopup', 'listbox'); btn.setAttribute('aria-expanded', 'false');
+    list.className = 'dd-list'; list.id = `dd-l${n}`; list.hidden = true; list.tabIndex = -1;
+    list.setAttribute('role', 'listbox'); btn.setAttribute('aria-controls', list.id);
+    if (label && label.firstChild && label.firstChild.nodeType === 3) { // name the button and list after the label text
+      const t = document.createElement('span');
+      t.id = `dd-t${n}`;
+      t.appendChild(document.createTextNode(label.firstChild.textContent));
+      label.replaceChild(t, label.firstChild);
+      btn.setAttribute('aria-labelledby', `${t.id} ${btn.id}`);
+      list.setAttribute('aria-labelledby', t.id);
+    }
+    const opts = [...sel.options].map((o, i) => {
+      const li = document.createElement('li');
+      li.id = `dd-o${n}-${i}`; li.setAttribute('role', 'option'); li.textContent = o.textContent;
+      list.appendChild(li);
+      return li;
+    });
+    sel.before(box); box.append(btn, list, sel); // button first: clicking the label text opens the list
+    let active = 0;
+    const sync = () => {
+      btn.textContent = btn.title = sel.options[sel.selectedIndex]?.textContent || ''; // title: full text when it is cut short
+      opts.forEach((li, i) => li.setAttribute('aria-selected', String(i === sel.selectedIndex)));
+    };
+    const setActive = (i) => {
+      active = Math.max(0, Math.min(opts.length - 1, i));
+      opts.forEach((li, j) => li.classList.toggle('active', j === active));
+      list.setAttribute('aria-activedescendant', opts[active].id);
+      opts[active].scrollIntoView({ block: 'nearest' });
+    };
+    const isOpen = () => !list.hidden;
+    const close = (focus) => {
+      if (!isOpen()) return;
+      list.hidden = true; box.classList.remove('open'); btn.setAttribute('aria-expanded', 'false');
+      if (focus) btn.focus();
+    };
+    const open = () => {
+      dropdowns.forEach((d) => d !== close && d(false));
+      list.classList.remove('up');
+      list.hidden = false; box.classList.add('open'); btn.setAttribute('aria-expanded', 'true');
+      const r = list.getBoundingClientRect();
+      if (r.bottom > window.innerHeight && btn.getBoundingClientRect().top > r.height + 12) list.classList.add('up');
+      setActive(sel.selectedIndex); list.focus({ preventScroll: true });
+    };
+    const pick = (i) => {
+      if (sel.selectedIndex !== i) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change', { bubbles: true })); }
+      sync(); close(true);
+    };
+    dropdowns.push(close);
+    btn.addEventListener('click', (e) => { e.preventDefault(); if (isOpen()) close(true); else open(); });
+    btn.addEventListener('keydown', (e) => {
+      if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key)) { e.preventDefault(); open(); }
+    });
+    let typed = '', typedAt = 0;
+    list.addEventListener('keydown', (e) => {
+      const k = e.key;
+      if (k === 'ArrowDown') setActive(active + 1);
+      else if (k === 'ArrowUp') setActive(active - 1);
+      else if (k === 'Home' || k === 'PageUp') setActive(0);
+      else if (k === 'End' || k === 'PageDown') setActive(opts.length - 1);
+      else if (k === 'Enter' || k === ' ') pick(active);
+      else if (k === 'Escape') close(true);
+      else if (k === 'Tab') { close(false); btn.focus(); return; }
+      else if (k.length === 1) { // jump to an option by its first letters
+        typed = (Date.now() - typedAt > 700 ? '' : typed) + k.toLowerCase(); typedAt = Date.now();
+        const i = opts.findIndex((li) => li.textContent.toLowerCase().startsWith(typed));
+        if (i >= 0) setActive(i);
+      } else return;
+      e.preventDefault();
+    });
+    list.addEventListener('click', (e) => {
+      e.preventDefault();
+      const li = e.target.closest('li');
+      if (li) pick(opts.indexOf(li));
+    });
+    list.addEventListener('mousemove', (e) => { const li = e.target.closest('li'); if (li) setActive(opts.indexOf(li)); });
+    list.addEventListener('focusout', (e) => { if (!box.contains(e.relatedTarget)) close(false); });
+    sel.addEventListener('change', sync);
+    if (sel.form) sel.form.addEventListener('reset', () => setTimeout(sync));
+    sync();
+  });
+  document.addEventListener('pointerdown', (e) => { if (!(e.target.closest && e.target.closest('.dd'))) dropdowns.forEach((c) => c(false)); });
+
   /* ===== Forms: the form service receives name, email and message, so every other answer
      (phone, type, size, budget…) is written into the message just before sending. ===== */
   const form = $('#lead-form');
