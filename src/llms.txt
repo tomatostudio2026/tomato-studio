@@ -18,6 +18,10 @@
 
 - [Strona główna]({{SITE_URL}}/): {{PAGE_TITLE}}
 - [Realizacje]({{SITE_URL}}/realizacje.html): galerie projektów domów, mieszkań, apartamentów i lokali inwestycyjnych
+- [Realizacje – domy]({{SITE_URL}}/realizacje-domy.html): projekty wnętrz domów
+- [Realizacje – mieszkania]({{SITE_URL}}/realizacje-mieszkania.html): projekty wnętrz mieszkań i kawalerek
+- [Realizacje – apartamenty]({{SITE_URL}}/realizacje-apartamenty.html): projekty wnętrz apartamentów
+- [Realizacje – lokale inwestycyjne]({{SITE_URL}}/realizacje-lokale-inwestycyjne.html): projekty mieszkań na wynajem
 - [Dla biznesu]({{SITE_URL}}/dla-biznesu.html): wnętrza komercyjne – sektory, doświadczenie, proces, zapytanie
 - [O nas]({{SITE_URL}}/o-nas.html): zespół, pracownia i narzędzia
 - [Kontakt]({{SITE_URL}}/kontakt.html): telefony, e-mail, adres

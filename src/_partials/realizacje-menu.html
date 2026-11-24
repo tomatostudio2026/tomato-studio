@@ -1,0 +1,8 @@
+        <!-- Kategorie realizacji: każda ma własną stronę. Strona zaznacza swoją kategorię wartością CAT w bloku @vars. -->
+        <nav class="filters" aria-label="Kategorie realizacji">
+          <a class="tab" href="realizacje.html"<!-- @if !CAT --> aria-current="page"<!-- @endif -->>Wszystkie</a>
+          <a class="tab" href="realizacje-domy.html"<!-- @if CAT=domy --> aria-current="page"<!-- @endif -->>Domy</a>
+          <a class="tab" href="realizacje-mieszkania.html"<!-- @if CAT=mieszkania --> aria-current="page"<!-- @endif -->>Mieszkania</a>
+          <a class="tab" href="realizacje-apartamenty.html"<!-- @if CAT=apartamenty --> aria-current="page"<!-- @endif -->>Apartamenty</a>
+          <a class="tab" href="realizacje-lokale-inwestycyjne.html"<!-- @if CAT=inwest --> aria-current="page"<!-- @endif -->>Lokale inwestycyjne</a>
+        </nav>

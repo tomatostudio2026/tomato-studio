@@ -24,24 +24,10 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && nav.classList.contains('open')) { set(false); toggle.focus(); } });
   }
 
-  /* ===== Realizacje: category filter (also from links like realizacje.html#domy) ===== */
-  const filters = $('.filters');
-  if (filters) {
-    const tabs = $$('[data-f]', filters);
-    const cards = $$('.grid-projects [data-cat]');
-    const apply = (f) => {
-      if (!tabs.some((t) => t.dataset.f === f)) f = 'all';
-      tabs.forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.f === f)));
-      cards.forEach((c) => { c.hidden = f !== 'all' && c.dataset.cat !== f; });
-    };
-    filters.addEventListener('click', (e) => {
-      const t = e.target.closest('[data-f]');
-      if (!t) return;
-      apply(t.dataset.f);
-      history.replaceState(null, '', t.dataset.f === 'all' ? location.pathname : '#' + t.dataset.f);
-    });
-    apply(location.hash.slice(1));
-    window.addEventListener('hashchange', () => apply(location.hash.slice(1)));
+  /* ===== Realizacje: old links like realizacje.html#domy go to the category's own page ===== */
+  if (/realizacje(\.html)?$/.test(location.pathname)) {
+    const page = { domy: 'domy', mieszkania: 'mieszkania', apartamenty: 'apartamenty', inwest: 'lokale-inwestycyjne' }[location.hash.slice(1)];
+    if (page) location.replace('realizacje-' + page + '.html');
   }
 
   /* ===== Project gallery (lightbox) =====

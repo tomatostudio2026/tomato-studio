@@ -1,0 +1,81 @@
+<!-- @vars {"NAV": "realizacje", "CAT": "inwest"} -->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>Projekty lokali inwestycyjnych – realizacje | {{BRAND}}</title>
+  <meta name="description" content="Realizacje: projekty lokali inwestycyjnych, czyli mieszkań na wynajem: trwałe, łatwe w utrzymaniu, dobrze wyglądające na zdjęciach.">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="Lokale inwestycyjne – realizacje | {{BRAND}}">
+  <meta property="og:description" content="Mieszkania na wynajem: trwałe, łatwe w utrzymaniu, dobrze wyglądające na zdjęciach.">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{SITE_URL}}/img/realizacje/loktar/01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "{{SITE_URL}}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Realizacje",
+            "item": "{{SITE_URL}}/realizacje.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Lokale inwestycyjne",
+            "item": "{{PAGE_URL}}"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Realizacje</p>
+        <h1 class="page-title">Lokale inwestycyjne</h1>
+        <p class="lead-muted">Mieszkania na wynajem: trwałe, łatwe w utrzymaniu, dobrze wyglądające na zdjęciach.</p>
+        <!-- @include realizacje-menu -->
+      </div>
+    </section>
+
+    <!-- Projekty tej kategorii są w _partials/projekty-lokale-inwestycyjne.html (te same karty pokazuje strona Realizacje). -->
+    <section class="projects">
+      <div class="wrap">
+        <div class="grid-projects">
+          <!-- @include projekty-lokale-inwestycyjne -->
+        </div>
+      </div>
+    </section>
+
+    <section class="band-accent cta-band">
+      <div class="wrap">
+        <h2>Masz lokal na wynajem? Porozmawiajmy.</h2>
+        <a class="btn btn-light" href="konsultacja.html">{{CTA_LABEL}}</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include lightbox -->
+  <!-- @include footer -->
+</body>
+</html>

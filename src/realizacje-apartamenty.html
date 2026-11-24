@@ -1,0 +1,81 @@
+<!-- @vars {"NAV": "realizacje", "CAT": "apartamenty"} -->
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+  <!-- @include head -->
+  <title>Projekty wnętrz apartamentów – realizacje | {{BRAND}}</title>
+  <meta name="description" content="Realizacje: projekty wnętrz apartamentów – duże metraże i wyższy standard wykończenia. Zobacz galerie projektów Tomato Studio.">
+  <link rel="canonical" href="{{PAGE_URL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{BRAND}}">
+  <meta property="og:locale" content="{{LOCALE}}">
+  <meta property="og:title" content="Apartamenty – realizacje | {{BRAND}}">
+  <meta property="og:description" content="Duże metraże i wyższy standard wykończenia.">
+  <meta property="og:url" content="{{PAGE_URL}}">
+  <meta property="og:image" content="{{SITE_URL}}/img/realizacje/aptar/01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "{{SITE_URL}}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Realizacje",
+            "item": "{{SITE_URL}}/realizacje.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Apartamenty",
+            "item": "{{PAGE_URL}}"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- @include header -->
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Realizacje</p>
+        <h1 class="page-title">Apartamenty</h1>
+        <p class="lead-muted">Duże metraże i wyższy standard wykończenia.</p>
+        <!-- @include realizacje-menu -->
+      </div>
+    </section>
+
+    <!-- Projekty tej kategorii są w _partials/projekty-apartamenty.html (te same karty pokazuje strona Realizacje). -->
+    <section class="projects">
+      <div class="wrap">
+        <div class="grid-projects">
+          <!-- @include projekty-apartamenty -->
+        </div>
+      </div>
+    </section>
+
+    <section class="band-accent cta-band">
+      <div class="wrap">
+        <h2>Masz apartament do urządzenia? Porozmawiajmy.</h2>
+        <a class="btn btn-light" href="konsultacja.html">{{CTA_LABEL}}</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- @include lightbox -->
+  <!-- @include footer -->
+</body>
+</html>

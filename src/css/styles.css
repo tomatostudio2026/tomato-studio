@@ -260,14 +260,12 @@ details.faq p { font-size: 16px; line-height: 1.6; color: var(--text-2); padding
 
 /* ---------- realizacje ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: 12px 36px; border-top: 1px solid var(--ink); padding-top: 24px; }
-html:not(.js) .filters { display: none; } /* filtering needs JS; without it all projects show */
-.tab { background: none; border: 0; padding: 0; cursor: pointer; font: 700 34px var(--font); letter-spacing: -.02em; color: var(--soft); }
-.tab[aria-pressed="true"] { color: var(--accent); }
+.tab { font: 700 34px var(--font); letter-spacing: -.02em; color: var(--soft); text-decoration: none; }
+.tab[aria-current="page"] { color: var(--accent); }
 .tab:hover { color: var(--ink); }
 .projects { padding: 16px 0 110px; }
 .grid-projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); gap: 56px 32px; }
 .rcard { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; }
-.rcard[hidden] { display: none; }
 .rcard-img { overflow: hidden; border-radius: 2px; position: relative; }
 .rcard-img img { width: 100%; height: 440px; object-fit: cover; transition: transform .5s; }
 .rcard:hover .rcard-img img { transform: scale(1.03); }
@@ -411,7 +409,7 @@ button[disabled] { opacity: .6; cursor: progress; }
   :root { --gutter: 16px; }
   .hide-m { display: none !important; }
   .h2 { font-size: 40px; }
-  .page-title { font-size: 58px; }
+  .page-title { font-size: clamp(40px, 14vw, 58px); }
   .band { padding: 80px 0; }
 
   .js #mtoggle { display: inline-block; }
