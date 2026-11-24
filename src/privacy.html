@@ -5,6 +5,30 @@
   <title>Polityka prywatności | {{BRAND}}</title>
   <meta name="description" content="Jak {{BRAND}} zbiera, wykorzystuje i chroni dane osobowe, które usługi je przetwarzają i jak skorzystać ze swoich praw.">
   <link rel="canonical" href="{{PAGE_URL}}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "{{SITE_URL}}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Polityka prywatności",
+            "item": "{{PAGE_URL}}"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- @include header -->

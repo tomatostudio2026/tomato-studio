@@ -3,7 +3,7 @@
 <html lang="{{LANG}}">
 <head>
   <!-- @include head -->
-  <title>Kontakt – pracownia wnętrz Kraków, Pod Fortem 15A | {{BRAND}}</title>
+  <title>Kontakt – projektowanie wnętrz Kraków | {{BRAND}}</title>
   <meta name="description" content="Skontaktuj się z Tomato Studio: +48 696 166 002, +48 512 102 789, biuro@tomatostudio.com.pl. Pracownia przy ul. Pod Fortem 15A/3 w Krakowie.">
   <link rel="canonical" href="{{PAGE_URL}}">
   <meta property="og:type" content="website">
@@ -14,6 +14,30 @@
   <meta property="og:url" content="{{PAGE_URL}}">
   <meta property="og:image" content="{{SITE_URL}}/og.png">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "{{SITE_URL}}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Kontakt",
+            "item": "{{PAGE_URL}}"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- @include header -->
@@ -31,7 +55,7 @@
         <div class="kgrid">
           <div class="kc"><h2 class="eyebrow">Telefon</h2><a class="kv" href="tel:+48696166002">+48&nbsp;696&nbsp;166&nbsp;002</a><a class="kv" href="tel:+48512102789">+48&nbsp;512&nbsp;102&nbsp;789</a></div>
           <div class="kc"><h2 class="eyebrow">E-mail</h2><a class="kv mail" href="mailto:{{CONTACT_EMAIL}}">{{CONTACT_EMAIL}}</a></div>
-          <div class="kc"><h2 class="eyebrow">Pracownia</h2><address class="kv" style="font-style:normal">ul. Pod Fortem 15A/3<br>Kraków</address><p class="small">Małopolska na miejscu, cała Polska zdalnie</p></div>
+          <div class="kc"><h2 class="eyebrow">Pracownia</h2><address class="kv" style="font-style:normal">ul. Pod Fortem 15A/3<br>Kraków</address><p class="small">Małopolska i Podkarpacie na miejscu, cała Polska zdalnie</p></div>
           <div class="kc"><h2 class="eyebrow">Social media</h2><a class="kv" href="https://www.instagram.com/tomatostudio.archi/">Instagram</a><a class="kv" href="https://www.linkedin.com/company/tomato-archi/">LinkedIn</a><a class="kv" href="https://www.facebook.com/tomatostudio.interiordesign">Facebook</a></div>
         </div>
       </div>

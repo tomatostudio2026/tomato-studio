@@ -12,7 +12,7 @@
   <!-- @if BING_SITE_VERIFICATION -->
   <meta name="msvalidate.01" content="{{BING_SITE_VERIFICATION}}">
   <!-- @endif -->
-  <link rel="preload" as="image" href="img/hero-poster.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="img/hero-poster.webp" type="image/webp" fetchpriority="high">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{BRAND}}">
@@ -47,6 +47,7 @@
           "@type": "PostalAddress",
           "streetAddress": "ul. Pod Fortem 15A/3",
           "addressLocality": "Kraków",
+          "addressRegion": "małopolskie",
           "addressCountry": "PL"
         },
         "areaServed": ["Kraków", "Małopolska", "Podkarpacie", "Polska"],
@@ -104,7 +105,8 @@
     <!-- Hero: film z Willi w Tarnowie (plakat = pierwsza klatka, widoczny zanim film się wczyta) -->
     <section class="hero">
       <!-- [html-validate-disable-next no-autoplay -- silent decorative background film, as in the approved design; paused for reduced motion by js/site.js] -->
-      <video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg" aria-hidden="true">
+      <video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.webp" aria-hidden="true">
+        <source type="video/mp4" src="video/hero-720.mp4" media="(max-width: 767px)">
         <source type="video/mp4" src="video/hero.mp4">
       </video>
       <div class="hero-shade"></div>
@@ -170,23 +172,23 @@
       </div>
       <div class="gal" id="gal">
         <a class="slide" href="img/realizacje/willa/01.jpg" data-gal data-count="9" data-name="Willa w Tarnowie" data-catname="Domy">
-          <span class="slide-img"><img src="img/realizacje/willa/01.jpg" alt="Willa w Tarnowie" width="1200" height="675" loading="lazy"></span>
+          <span class="slide-img"><picture><source type="image/webp" srcset="img/realizacje/willa/01-700.webp 700w, img/realizacje/willa/01.webp 1200w" sizes="(max-width: 767px) 90vw, 50vw"><img src="img/realizacje/willa/01.jpg" alt="Willa w Tarnowie" width="1200" height="675" loading="lazy"></picture></span>
           <span class="slide-meta"><span class="slide-name">Willa w Tarnowie</span><span class="slide-tag">Domy · Tarnów</span></span>
         </a>
         <a class="slide" href="img/realizacje/bra/01.jpg" data-gal data-count="8" data-name="Dom w Bratucicach" data-catname="Domy">
-          <span class="slide-img"><img src="img/realizacje/bra/01.jpg" alt="Dom w Bratucicach" width="1200" height="675" loading="lazy"></span>
+          <span class="slide-img"><picture><source type="image/webp" srcset="img/realizacje/bra/01-700.webp 700w, img/realizacje/bra/01.webp 1200w" sizes="(max-width: 767px) 90vw, 50vw"><img src="img/realizacje/bra/01.jpg" alt="Dom w Bratucicach" width="1200" height="675" loading="lazy"></picture></span>
           <span class="slide-meta"><span class="slide-name">Dom w Bratucicach</span><span class="slide-tag">Domy · Bratucice</span></span>
         </a>
         <a class="slide" href="img/realizacje/bliz/01.jpg" data-gal data-count="7" data-name="Bliźniak w Krakowie" data-catname="Domy">
-          <span class="slide-img"><img src="img/realizacje/bliz/01.jpg" alt="Bliźniak w Krakowie" width="1200" height="675" loading="lazy"></span>
+          <span class="slide-img"><picture><source type="image/webp" srcset="img/realizacje/bliz/01-700.webp 700w, img/realizacje/bliz/01.webp 1200w" sizes="(max-width: 767px) 90vw, 50vw"><img src="img/realizacje/bliz/01.jpg" alt="Bliźniak w Krakowie" width="1200" height="675" loading="lazy"></picture></span>
           <span class="slide-meta"><span class="slide-name">Bliźniak w Krakowie</span><span class="slide-tag">Domy · Kraków</span></span>
         </a>
         <a class="slide" href="img/realizacje/mog/01.jpg" data-gal data-count="6" data-name="Kawalerka Mogilany" data-catname="Mieszkania">
-          <span class="slide-img"><img src="img/realizacje/mog/01.jpg" alt="Kawalerka Mogilany" width="1200" height="675" loading="lazy"></span>
+          <span class="slide-img"><picture><source type="image/webp" srcset="img/realizacje/mog/01-700.webp 700w, img/realizacje/mog/01.webp 1200w" sizes="(max-width: 767px) 90vw, 50vw"><img src="img/realizacje/mog/01.jpg" alt="Kawalerka Mogilany" width="1200" height="675" loading="lazy"></picture></span>
           <span class="slide-meta"><span class="slide-name">Kawalerka Mogilany</span><span class="slide-tag">Mieszkania · Mogilany</span></span>
         </a>
         <a class="slide" href="img/realizacje/baj/01.jpg" data-gal data-count="11" data-name="Mieszkanie Bajeczna" data-catname="Mieszkania">
-          <span class="slide-img"><img src="img/realizacje/baj/01.jpg" alt="Mieszkanie Bajeczna" width="1200" height="675" loading="lazy"></span>
+          <span class="slide-img"><picture><source type="image/webp" srcset="img/realizacje/baj/01-700.webp 700w, img/realizacje/baj/01.webp 1200w" sizes="(max-width: 767px) 90vw, 50vw"><img src="img/realizacje/baj/01.jpg" alt="Mieszkanie Bajeczna" width="1200" height="675" loading="lazy"></picture></span>
           <span class="slide-meta"><span class="slide-name">Mieszkanie Bajeczna</span><span class="slide-tag">Mieszkania · Kraków</span></span>
         </a>
       </div>

@@ -4,9 +4,9 @@
 <head>
   <!-- @include head -->
   <title>Wnętrza komercyjne: hotele, gastronomia, PRS | {{BRAND}}</title>
-  <meta name="description" content="Wnętrza komercyjne dla deweloperów, hoteli, gastronomii, operatorów PRS/PBSA i firm: koncepcja, dokumentacja wykonawcza i nadzór, w budżecie i harmonogramie.">
+  <meta name="description" content="Wnętrza komercyjne dla deweloperów, hoteli, gastronomii, operatorów PRS/PBSA i firm: koncepcja, dokumentacja wykonawcza i nadzór, w budżecie i terminie.">
   <link rel="canonical" href="{{PAGE_URL}}">
-  <link rel="preload" as="image" href="img/biznes-hero.jpg" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="img/biznes-hero-800.webp 800w, img/biznes-hero.webp 1440w" imagesizes="100vw" fetchpriority="high">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{BRAND}}">
   <meta property="og:locale" content="{{LOCALE}}">
@@ -15,13 +15,56 @@
   <meta property="og:url" content="{{PAGE_URL}}">
   <meta property="og:image" content="{{SITE_URL}}/img/biznes-hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "{{SITE_URL}}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dla biznesu",
+            "item": "{{PAGE_URL}}"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Projektowanie wnętrz komercyjnych",
+        "serviceType": [
+          "Projektowanie wnętrz hoteli",
+          "Projektowanie wnętrz gastronomii",
+          "Projektowanie wnętrz PRS",
+          "Projektowanie wnętrz PBSA",
+          "Projektowanie biur"
+        ],
+        "description": "Koncepcja, dokumentacja wykonawcza i nadzór autorski dla deweloperów, hoteli, gastronomii, operatorów PRS/PBSA i firm.",
+        "provider": {
+          "@id": "{{SITE_URL}}/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Polska"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- @include header -->
 
   <main id="main">
     <section class="hero biz-hero">
-      <img class="hero-media" src="img/biznes-hero.jpg" alt="Restauracja – wnętrze komercyjne Tomato Studio" width="1440" height="810" fetchpriority="high">
+      <picture><source type="image/webp" srcset="img/biznes-hero-800.webp 800w, img/biznes-hero.webp 1440w" sizes="100vw"><img class="hero-media" src="img/biznes-hero.jpg" alt="Restauracja – wnętrze komercyjne Tomato Studio" width="1440" height="810" fetchpriority="high"></picture>
       <div class="hero-shade biz"></div>
       <div class="wrap hero-body">
         <p class="eyebrow">Dla deweloperów, hoteli, gastronomii, operatorów PRS/PBSA i firm</p>
